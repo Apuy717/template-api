@@ -1,0 +1,98 @@
+Login:
+  post:
+    tags:
+      - Auth
+    summary: This is router for Login
+    requestBody:
+      description: Payload login object
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              email:
+                type: string
+                example: super.admin@mail.com
+              password:
+                type: string
+                example: "@Password123!"
+    responses:
+      "200":
+        description: Successful response
+        content:
+          application/json:
+            schema:
+              type: object
+              $ref: "../components/auth.schema.yaml#/Login"
+      "422":
+        description: "Error validation rules"
+        content:
+          application/json:
+            schema:
+              type: object
+              $ref: "../components/schemas.yaml#/Error422"
+
+      "404":
+        description: "Error ref data tidak ditemukan"
+        content:
+          application/json:
+            schema:
+              type: object
+              $ref: "../components/schemas.yaml#/Error"
+
+Register:
+  post:
+    tags:
+      - Auth
+    summary: This is router for registration
+    requestBody:
+      description: Payload registration object
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              email:
+                type: string
+                example: super.admin@mail.com
+              full_name:
+                type: string
+                example: super admin
+              password:
+                type: string
+                example: "@Password123!"
+              role_id:
+                type: string
+                format: uuid
+              permission_ids:
+                type: array
+                items:
+                  type: string
+                  format: uuid
+                example: []
+    responses:
+      "200":
+        description: Successful response
+        content:
+          application/json:
+            schema:
+              type: object
+              $ref: "../components/auth.schema.yaml#/Register"
+      "422":
+        description: "Error validation rules"
+        content:
+          application/json:
+            schema:
+              type: object
+              $ref: "../components/schemas.yaml#/Error422"
+      "400":
+        description: "Error data already exist"
+        content:
+          application/json:
+            schema:
+              type: object
+              $ref: "../components/schemas.yaml#/Error"
+            example:
+              statusCode: 400
+              msg: "!OK"
+              err: "Email xxx already exist!"

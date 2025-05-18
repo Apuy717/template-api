@@ -1,0 +1,27 @@
+Error:
+  type: object
+  properties:
+    statusCode:
+      type: integer
+      example: integer value other than 422
+    msg:
+      type: string
+      example: "!OK"
+    err:
+      type: string
+      example: string value
+
+Error422:
+  type: object
+  properties:
+    statusCode:
+      type: integer
+      example: 422
+    msg:
+      type: string
+      example: "!OK"
+    err:
+      type: array
+      items:
+        type: string
+        example: ["id must be uuid"]

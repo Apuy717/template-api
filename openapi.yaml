@@ -1,0 +1,41 @@
+openapi: 3.0.3
+info:
+  title: My API
+  version: 1.0.0
+servers:
+  - url: http://localhost:3002/api
+    description: Local server
+tags:
+  - name: Auth
+    description: Everything about your Auth
+  - name: Roles
+    description: Everything about your Roles
+  - name: Users
+    description: Everything about your Users
+paths:
+  # Auth
+  /auth/login/:
+    $ref: "./docs/paths/auth.yaml#/Login"
+  /auth/register/:
+    $ref: "./docs/paths/auth.yaml#/Register"
+
+  # roles && permissions
+  /roles:
+    $ref: "./docs/paths/roles.yaml#/GotAllRoles"
+  /roles/permissions:
+    $ref: "./docs/paths/roles.yaml#/GotPermissions"
+  /roles/create:
+    $ref: "./docs/paths/roles.yaml#/CreateWithPermissions"
+
+  # users
+  /user:
+    $ref: "./docs/paths/users.yaml#/GotAllUsers"
+
+components:
+  schemas:
+    $ref: "./docs/components/schemas.yaml"
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

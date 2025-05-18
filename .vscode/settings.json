@@ -1,0 +1,5 @@
+{
+  "yaml.schemas": {
+    "openapi:v3": "file:///Users/apuystereo/Documents/secure/sinergiwash/platform/template-api/docs/openapi.yaml"
+  }
+}

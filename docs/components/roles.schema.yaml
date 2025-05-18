@@ -1,0 +1,64 @@
+Roles:
+  type: object
+  properties:
+    id:
+      type: string
+      format: uuid
+    name:
+      type: string
+    created_at:
+      type: string
+    updated_at:
+      type: string
+
+Permissions:
+  type: object
+  properties:
+    id:
+      tags: string
+      format: uuid
+    module:
+      type: string
+    method:
+      type: string
+    path:
+      type: string
+    handler:
+      type: string
+    created_at:
+      type: string
+    updated_at:
+      type: string
+
+RolesWithPermissions:
+  type: object
+  properties:
+    id:
+      type: string
+      format: uuid
+    name:
+      type: string
+    created_at:
+      type: string
+    updated_at:
+      type: string
+    permissions:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            tags: string
+            format: uuid
+          module:
+            type: string
+          method:
+            type: string
+          path:
+            type: string
+          handler:
+            type: string
+          created_at:
+            type: string
+          updated_at:
+            type: string

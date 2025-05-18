@@ -1,0 +1,48 @@
+Login:
+  type: object
+  properties:
+    id:
+      type: string
+      format: uuid
+    full_name:
+      type: string
+      example: "super.admin"
+    email:
+      type: string
+      example: "super.admin@mail.com"
+    role:
+      type: object
+      $ref: "../components/roles.schema.yaml#/Roles"
+    permissions:
+      type: array
+      items:
+        $ref: "../components/roles.schema.yaml#/Permissions"
+    accessToken:
+      tags: object
+      properties:
+        token:
+          type: string
+          example: "sfasdfdsaf.asdfasdfd.asdfasf"
+        expires:
+          type: string
+          example: "720h"
+
+Register:
+  type: object
+  properties:
+    id:
+      type: string
+      format: uuid
+    full_name:
+      type: string
+      example: "super.admin"
+    email:
+      type: string
+      example: "super.admin@mail.com"
+    role:
+      type: object
+      $ref: "../components/roles.schema.yaml#/Roles"
+    permissions:
+      type: array
+      items:
+        $ref: "../components/roles.schema.yaml#/Permissions"

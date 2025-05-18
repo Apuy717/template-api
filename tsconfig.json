@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es2019",
+    "lib": [
+      "es2019"
+    ],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "declaration": false,
+    // "module": "NodeNext",
+    "rootDir": "./",
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "strict": false,
+    "skipLibCheck": true,
+    "incremental": true,
+    // "moduleResolution": "NodeNext",
+    "module": "CommonJS",
+    "moduleResolution": "Node"
+  }
+}
